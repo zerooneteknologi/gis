@@ -6,7 +6,7 @@
 		<div class="card">
 			<div class="row align-items-center text-center">
 				<div class="col-md-12">
-                    <form action="{{ route('login')}}">
+                    <form method="POST" action="{{ route('login')}}">
                         @csrf
 						<div class="card-body">
 							<img src="assets/images/logo-dark.svg" alt="" class="img-fluid mb-4">
