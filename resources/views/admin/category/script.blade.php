@@ -1,0 +1,35 @@
+
+@push('script')
+<script>
+    
+    $.ajaxSetup({
+        headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+    });
+
+    // function shoh modal insert data
+    function insert() {
+        $('form').attr('action', '/category')
+        $("form input[name='_method']").attr('value', 'POST')
+        $('.modal-title').html('Tambah Kategori')
+        $(".modal-footer button[type='submit']").html('Tambah')
+        $('#categoryName').val("")
+        $('#categoryDesc').val("")
+        $('#showModal').modal().show
+    }
+
+    // function shoh modal edit data
+    function edit(id) {
+        $.get('category/' + id + '/edit', function(e) {
+            $('form').attr('action', '/category/' + id)
+            $("form input[name='_method']").attr('value', 'PUT')
+            $('.modal-title').html('Edit Kategori')
+            $(".modal-footer button[type='submit']").html('Edit')
+            $('#categoryName').val(e.categoryName)
+            $('#categoryDesc').val(e.categoryDesc)
+            $('#showModal').modal().show
+        })
+    }
+</script>
+@endpush

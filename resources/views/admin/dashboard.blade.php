@@ -1,5 +1,6 @@
 @extends('layouts.admin')
-
+@section('tittle', 'Kategori')
+    
 @section('content')
 <!-- [ breadcrumb ] start -->
 <div class="page-header">
