@@ -9,7 +9,7 @@
                     <form method="POST" action="{{ route('login')}}">
                         @csrf
 						<div class="card-body">
-							<img src="assets/images/logo-dark.svg" alt="" class="img-fluid mb-4">
+							<img src="{{ asset($setting->logo) }}" alt="{{ $setting->tittelWeb}}" style="max-height: 100px" class="img-fluid mb-4">
 							<h4 class="mb-3 f-w-400">Signin</h4>
 							<div class="input-group mb-3">
 								<span class="input-group-text"><i data-feather="mail"></i></span>
