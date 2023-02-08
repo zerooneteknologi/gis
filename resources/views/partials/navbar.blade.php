@@ -1,7 +1,7 @@
 <!-- [ Mobile header ] start -->
 <div class="pc-mob-header pc-header">
 	<div class="pcm-logo">
-		<img src="admin/assets/images/logo.svg" alt="" class="logo logo-lg">
+		<img src="{{ $setting->logo}}" alt="{{ $setting->tittleWeb}}" class="logo logo-lg">
 	</div>
 	<div class="pcm-toolbar">
 		<a href="#!" class="pc-head-link" id="mobile-collapse">
@@ -27,8 +27,7 @@
 		<div class="m-header">
 			<a href="index.html" class="b-brand">
 				<!-- ========   change your logo hear   ============ -->
-				<img src="admin/assets/images/logo.svg" alt="" class="logo logo-lg">
-				<img src="admin/assets/images/logo-sm.svg" alt="" class="logo logo-sm">
+				<h6 class="text-white uppercase">{{ $setting->tittleWeb}}</h6>
 			</a>
 		</div>
 		<div class="navbar-content">
@@ -37,7 +36,13 @@
 					<label>Navigation</label>
 				</li>
 				<li class="pc-item">
-					<a href="index.html" class="pc-link "><span class="pc-micon"><i class="material-icons-two-tone">home</i></span><span class="pc-mtext">Dashboard</span></a>
+					<a href="{{route('dashboard')}}" class="pc-link "><span class="pc-micon"><i data-feather="home"></i></span><span class="pc-mtext capitalize">{{__('dashboard')}}</span></a>
+				</li>
+				<li class="pc-item">
+					<a href="{{route('category.index')}}" class="pc-link "><span class="pc-micon"><i data-feather="command"></i></span><span class="pc-mtext capitalize">{{__('category')}}</span></a>
+				</li>
+				<li class="pc-item">
+					<a href="{{route('setting.index')}}" class="pc-link "><span class="pc-micon"><i data-feather="settings"></i></span><span class="pc-mtext capitalize">{{__('setting')}}</span></a>
 				</li>
 				<li class="pc-item pc-caption">
 					<label>Elements</label>

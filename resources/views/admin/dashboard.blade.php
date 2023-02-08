@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('tittle', 'Kategori')
+@section('tittle', 'Dashboard')
     
 @section('content')
 <!-- [ breadcrumb ] start -->
