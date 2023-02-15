@@ -21,7 +21,7 @@ class SettingFactory extends Factory
             'descWeb' => fake()->sentence(),
             'tittleAdmin' => fake()->domainWord(),
             'officeAddress' => fake()->address(),
-            'logo' => 'logo/xfXzY49D53SQINtZ3ktP8DBMghIsuxCnZpryUwoF.png'
+            'logo' => 'https://source.unsplash.com/400x400/?logo'
         ];
     }
 }
