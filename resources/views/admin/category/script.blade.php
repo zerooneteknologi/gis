@@ -10,8 +10,8 @@
 
     // function shoh modal insert data
     function insert() {
-        $('form').attr('action', '/category')
-        $("form input[name='_method']").attr('value', 'POST')
+        $('#formModal').attr('action', '/category')
+        $("#modalhide").attr('value', 'POST')
         $('.modal-title').html('Tambah Kategori')
         $(".modal-footer button[type='submit']").html('Tambah')
         $('#categoryName').val("")
@@ -22,8 +22,8 @@
     // function shoh modal edit data
     function edit(id) {
         $.get('category/' + id + '/edit', function(e) {
-            $('form').attr('action', '/category/' + id)
-            $("form input[name='_method']").attr('value', 'PUT')
+            $('#formModal').attr('action', '/category/' + id)
+            $("#modalhide").attr('value', 'PUT')
             $('.modal-title').html('Edit Kategori')
             $(".modal-footer button[type='submit']").html('Edit')
             $('#categoryName').val(e.categoryName)

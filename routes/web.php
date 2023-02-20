@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoyController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\OrganizerController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Auth;
@@ -29,4 +30,5 @@ Auth::routes();
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 Route::resource('/category', CategoyController::class)->except(['create', 'show']);
 Route::resource('/setting', SettingController::class)->only(['index', 'update']);
+Route::resource('/organizer', OrganizerController::class);
 Route::resource('/post', PostController::class);

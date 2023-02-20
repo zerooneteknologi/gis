@@ -50,7 +50,7 @@ class SettingController extends Controller
         }
 
         if ($request->file('logo')) {
-            $validatoData['logo'] = $request->file('logo')->store('logo');
+            $validatoData['logo'] = $request->file('logo')->store('/img/logo');
         }
 
         Setting::where('id', $setting->id)->update($validatoData);

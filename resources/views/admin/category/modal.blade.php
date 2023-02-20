@@ -6,11 +6,11 @@
                 <h5 class="modal-title" id="exampleModalLiveLabel">Modal Title</h5>
                 <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form method="POST">
+            <form method="POST" id="formModal">
                 @csrf
                 <div class="modal-body">
                     <div class="row mb-3">
-                        <input type='hidden' name='_method'>
+                        <input type='hidden' name='_method' id="modalhide">
                         <label for="categoryName" class="col-sm-3 col-form-label">Kategori <code>*</code></label>
                         <div class="col-sm-9">
                             <input name="categoryName" required type="text" class="form-control" id="categoryName" placeholder="max 15 karakter">
