@@ -47,6 +47,12 @@
 					<a href="{{route('post.index')}}" class="pc-link "><span class="pc-micon"><i data-feather="command"></i></span><span class="pc-mtext capitalize">{{__('post')}}</span></a>
 				</li>
 				<li class="pc-item">
+					<a href="{{route('organizer.index')}}" class="pc-link "><span class="pc-micon"><i data-feather="command"></i></span><span class="pc-mtext capitalize">{{__('organizer')}}</span></a>
+				</li>
+				<li class="pc-item">
+					<a href="{{route('tour.index')}}" class="pc-link "><span class="pc-micon"><i data-feather="command"></i></span><span class="pc-mtext capitalize">{{__('tour')}}</span></a>
+				</li>
+				<li class="pc-item">
 					<a href="{{route('setting.index')}}" class="pc-link "><span class="pc-micon"><i data-feather="settings"></i></span><span class="pc-mtext capitalize">{{__('setting')}}</span></a>
 				</li>
 				<li class="pc-item pc-caption">

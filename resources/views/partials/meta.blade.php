@@ -27,6 +27,9 @@
     <!-- vendor css -->
     <link rel="stylesheet" href="admin/assets/css/style.css" id="main-style-link">
 
+    {{-- stack --}}
+    @stack('css')
+
 </head>
 
 <body class="">

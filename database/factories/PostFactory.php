@@ -18,10 +18,10 @@ class PostFactory extends Factory
     {
         return [
             'category_id'     => fake()->numberBetween(1, 5),
-            'postTitle'       => fake()->sentence(),
-            'postSlug'        => fake()->sentence(),
+            'postTitle'       => fake()->sentence(3),
+            'postSlug'        => fake()->slug(3),
             'postImage'       => fake()->imageUrl(640, 480, 'animals', true, 'cats'),
-            'postDesc'        => fake()->paragraph(2)
+            'postDesc'        => fake()->randomHtml()
         ];
     }
 }
