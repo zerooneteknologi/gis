@@ -6,6 +6,7 @@ use App\Http\Controllers\OrganizerController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\TourController;
+use App\Http\Controllers\ImageUploadController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -34,3 +35,5 @@ Route::resource('/setting', SettingController::class)->only(['index', 'update'])
 Route::resource('/organizer', OrganizerController::class);
 Route::resource('/post', PostController::class);
 Route::resource('/tour', TourController::class);
+
+Route::post('image-upload', [ImageUploadController::class, 'storeImage'])->name('image.upload');

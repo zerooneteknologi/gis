@@ -1,7 +1,27 @@
 
 @push('script')
+
+{{-- ckeditor --}}
+<script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
+
 <script>
-    
+
+    // ckeditor    
+    let postDesc;
+
+    ClassicEditor.create( document.querySelector( '#postDesc' ), {
+        ckfinder: {
+            uploadUrl: '{{route('image.upload').'?_token='.csrf_token()}}',
+        }
+    } )
+    .then( newEditor => {
+        postDesc = newEditor;
+    } )
+    .catch( error => {
+        console.error( error );
+    } );
+
+    // modal    
     $.ajaxSetup({
         headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -16,7 +36,7 @@
         $(".modal-footer button[type='submit']").html('Tambah')
         $('#postTitle').val("")
         $('#categoryId').val("")
-        $('#postDesc').val("")
+        postDesc.setData("")
         $('#showModal').modal().show
     }
 
@@ -29,9 +49,9 @@
             $(".modal-footer button[type='submit']").html('Edit')
             $('#categoryId').val(e.category_id)
             $('#postTitle').val(e.postTitle)
-            $('#postDesc').val(e.postDesc)
+            postDesc.setData(e.postDesc)
             $('#showModal').modal().show
         })
-    }
+    }    
 </script>
 @endpush

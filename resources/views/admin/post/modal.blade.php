@@ -25,7 +25,7 @@
                     </div>
                     <div class="row mb-3">
                         <div class="col">
-                            <textarea name="postDesc" id="postDesc" rows="14" class="form-control" required></textarea>
+                            <textarea name="postDesc" id="postDesc" rows="14" class="form-control"></textarea>
                         </div>
                     </div>
                 </div>
