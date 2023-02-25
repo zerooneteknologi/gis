@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
@@ -16,33 +17,22 @@ class PostController extends Controller
     public function index()
     {
         return view('admin.post.index', [
-            'posts'      => Post::all()->sortBy('postTitle'),
+            'posts'      => Post::with('category')->latest()->get(),
             'categories' => Category::all()
         ]);
     }
 
     public function store(Request $request)
     {
-        Post::insert([
+        Post::create([
             'category_id'   => $request->categoryId,
             'postTitle'     => $request->postTitle,
-            'postSlug'      => str()->slug($request->postTitle),
-            'postImage'     => 'test',
+            'postSlug'      => Str::of($request->postTitle)->slug('-'),
+            'postExcerpt'   => $request->postDesc,
             'postDesc'      => $request->postDesc
         ]);
 
         return back()->with('success', "Berita $request->postTitle telah ditambahkan");
-        // if ($request->hasFile('upload')) {
-        //     $originName = $request->file('upload')->getClientOriginalName();
-        //     $fileName = pathinfo($originName, PATHINFO_FILENAME);
-        //     $extension = $request->file('upload')->getClientOriginalExtension();
-        //     $fileName = $fileName . '_' . time() . '.' . $extension;
-    
-        //     $request->file('upload')->move(public_path('media'), $fileName);
-    
-        //     $url = asset('media/' . $fileName);
-        //     return response()->json(['fileName' => $fileName, 'uploaded'=> 1, 'url' => $url]);
-        // }
     }
 
     /**
@@ -79,8 +69,8 @@ class PostController extends Controller
         Post::where('id', $post->id)->update([
             'category_id'   => $request->categoryId,
             'postTitle'     => $request->postTitle,
-            'postSlug'      => str()->slug($request->postTitle),
-            'postImage'     => 'test',
+            'postSlug'      => Str::of($request->postTitle)->slug('-'),
+            'postExcerpt'   => $request->postDesc,
             'postDesc'      => $request->postDesc
         ]);
 

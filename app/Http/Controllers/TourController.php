@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Tour;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class TourController extends Controller
 {
@@ -16,7 +17,7 @@ class TourController extends Controller
     public function index()
     {
         return view('admin.tour.index', [
-            'tours' => Tour::all()
+            'tours' => Tour::latest()->get()
         ]);
     }
 
@@ -27,7 +28,7 @@ class TourController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.tour.create');
     }
 
     /**
@@ -38,7 +39,17 @@ class TourController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = array(
+            'tourName'      => $request->tourName, 
+            'tourSlug'      => Str::of($request->tourName)->slug('-'), 
+            'tourLat'       => $request->tourLat, 
+            'tourLon'       => $request->tourLon, 
+            'tourAddress'   => $request->tourAddress, 
+            'tourImg'       => $request->file('tourImg'), 
+            'tourDesc'      => $request->tourDesc
+        );
+
+        return back()->with('success', "data $request->tourName berhasil ditambakan");
     }
 
     /**

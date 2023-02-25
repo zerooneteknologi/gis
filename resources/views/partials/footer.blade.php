@@ -1,7 +1,7 @@
-<script src="admin/assets/js/vendor-all.min.js"></script>
-<script src="admin/assets/js/plugins/bootstrap.min.js"></script>
-<script src="admin/assets/js/plugins/feather.min.js"></script>
-<script src="admin/assets/js/pcoded.min.js"></script>
+<script src="{{ asset('') }}admin/assets/js/vendor-all.min.js"></script>
+<script src="{{ asset('') }}admin/assets/js/plugins/bootstrap.min.js"></script>
+<script src="{{ asset('') }}admin/assets/js/plugins/feather.min.js"></script>
+<script src="{{ asset('') }}admin/assets/js/pcoded.min.js"></script>
 @stack('script')
 
 

@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->foreignId('category_id');
-            $table->string('postTitle', 100);
-            $table->string('postSlug', 100);
-            $table->string('postImage', 100);
+            $table->string('postTitle');
+            $table->string('postSlug')->unique();
+            $table->text('postExcerpt');
             $table->text('postDesc');
             $table->softDeletes();
             $table->timestamps();

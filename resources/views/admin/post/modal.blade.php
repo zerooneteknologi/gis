@@ -15,7 +15,7 @@
                                     <option value="" selected disabled>-- Pilih Kategori --</option>
                                     @foreach ($categories as $category)
                                         <option value="{{ $category->id }}" >{{ $category->categoryName }}</option>
-                                    @endforeach                                    
+                                    @endforeach
                                 </select>
                         </div>
                         <div class="col col-8">
@@ -24,7 +24,7 @@
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <div class="col">                            
+                        <div class="col">
                             <textarea name="postDesc" id="postDesc" rows="14" class="form-control" required></textarea>
                         </div>
                     </div>
@@ -38,6 +38,3 @@
     </div>
 </div>
 <!-- [ Main model ] end -->
-
-{{-- ckeditor5 cdn --}}
-<script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>

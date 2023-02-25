@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('tittle', 'Berita')
+@section('tittle', 'Wisata')
     
 @section('content')
 <!-- [ breadcrumb ] start -->
@@ -36,7 +36,7 @@
                     {{-- <h5>Tabel Berita</h5> --}}
                     <h4 class="d-block m-t-5">Daftar Wisata</h4>
                 </div>
-                <button type="button" class="btn btn-primary float-right" onclick="insert()"><i class="mr-2" data-feather="plus"></i>Tambah Wisata</button>
+                <a href="{{ route('tour.create') }}" class="btn btn-success float-right"><i class="mr-2" data-feather="plus"></i>Tambah Wisata</a>
             </div>
             <div class="card-body table-border-style">
                     <div class="table-responsive table-bordered" id="table">
@@ -58,7 +58,7 @@
                                         <td><img src="{{ $tour->tourImg}}" class="img-thumbnail" width="50px" alt=""></td>
                                         <td>{{ $tour->tourName}}</td>                                        
                                         <td>
-                                            <a onclick="edit({{$tour->id}})" href="#" class="badge rounded-pill bg-warning"><i data-feather="edit"></i></a>
+                                            <a href="#" class="badge rounded-pill bg-warning"><i data-feather="edit"></i></a>
                                             <form action="{{ route('tour.destroy', $tour->id)}}" method="post" class="d-inline">
                                                 @csrf
                                                 @method('delete')
@@ -77,8 +77,4 @@
     <!-- [ sample-page ] end -->
 </div>
 <!-- [ Main Content ] end -->
-
-@include('admin.tour.modal')
 @endsection
-
-@include('admin.tour.script')

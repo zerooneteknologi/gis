@@ -44,22 +44,22 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Tanggal</th>
-                                    <th>Gambar</th>
                                     <th>Judul</th>
+                                    <th>Kategori</th>
+                                    <th>Tanggal</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($posts as $post)
                                     <tr>
-                                        <td>{{ $loop->iteration}}</td>
-                                        <td>{{ $post->created_at}}</td>
-                                        <td><img src="{{ $post->postImage}}" class="img-thumbnail" width="50px" alt=""></td>
-                                        <td>{{ $post->postTitle}}</td>                                        
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $post->postTitle }}</td>
+                                        <td>{{ $post->category->categoryName }}</td>
+                                        <td>{{ date_format($post->created_at, 'd M Y') }}</td>
                                         <td>
-                                            <a onclick="edit({{$post->id}})" href="#" class="badge rounded-pill bg-warning"><i data-feather="edit"></i></a>
-                                            <form action="{{ route('post.destroy', $post->id)}}" method="POST" class="d-inline">
+                                            <a onclick="edit({{$post->id }})" href="#" class="badge rounded-pill bg-warning"><i data-feather="edit"></i></a>
+                                            <form action="{{ route('post.destroy', $post->id) }}" method="POST" class="d-inline">
                                                 @csrf
                                                 @method('delete')
                                                 <button onclick="return confirm('Yakin hapus data ini ?')" type="submit" class="badge rounded-pill bg-danger border-0"><i data-feather="trash-2"></i></button>

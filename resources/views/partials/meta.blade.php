@@ -20,12 +20,12 @@
     <link rel="icon" href="{{ $setting->logo }}" type="image/x-icon">
 
     <!-- font css -->
-    <link rel="stylesheet" href="admin/assets/fonts/feather.css">
-    <link rel="stylesheet" href="admin/assets/fonts/fontawesome.css">
-    <link rel="stylesheet" href="admin/assets/fonts/material.css">
+    <link rel="stylesheet" href="{{ asset('') }}admin/assets/fonts/feather.css">
+    <link rel="stylesheet" href="{{ asset('') }}admin/assets/fonts/fontawesome.css">
+    <link rel="stylesheet" href="{{ asset('') }}admin/assets/fonts/material.css">
 
     <!-- vendor css -->
-    <link rel="stylesheet" href="admin/assets/css/style.css" id="main-style-link">
+    <link rel="stylesheet" href="{{ asset('') }}admin/assets/css/style.css" id="main-style-link">
 
     {{-- stack --}}
     @stack('css')

@@ -33,11 +33,5 @@
             $('#showModal').modal().show
         })
     }
-
-    // ClassicEditor
-    //     .create( document.querySelector( '#postDesc' ))
-    //     .catch( error => {
-    //         console.error( error );
-    //     } );
 </script>
 @endpush

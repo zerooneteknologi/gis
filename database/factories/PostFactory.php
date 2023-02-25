@@ -20,8 +20,8 @@ class PostFactory extends Factory
             'category_id'     => fake()->numberBetween(1, 5),
             'postTitle'       => fake()->sentence(3),
             'postSlug'        => fake()->slug(3),
-            'postImage'       => fake()->imageUrl(640, 480, 'animals', true, 'cats'),
-            'postDesc'        => fake()->randomHtml()
+            'postExcerpt'     => fake()->paragraph(),
+            'postDesc'        => fake()->paragraph(mt_rand(5, 10))
         ];
     }
 }

@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('tours', function (Blueprint $table) {
             $table->id();
-            $table->string('tourName', 100);
-            $table->string('tourSlug', 100);
-            $table->string('tourLat', 100);
-            $table->string('tourLon', 100);
+            $table->string('tourName', 50);
+            $table->string('tourSlug', 50)->unique();
+            $table->string('tourLat', 50);
+            $table->string('tourLon', 50);
             $table->string('tourAddress', 100);
             $table->string('tourImg', 100);
             $table->text('tourDesc');

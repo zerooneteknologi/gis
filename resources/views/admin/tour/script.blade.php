@@ -1,43 +1,44 @@
 
 @push('script')
+
+{{-- ckeditor5 cdn --}}
+<script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
+
+ <!-- Make sure you put this AFTER Leaflet's CSS -->
+ <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+
 <script>
+
+    // map    
+
+    let map = new L.map('map').setView([-7.324542931485562, 108.22048455476762], 13);
     
-    $.ajaxSetup({
-        headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-    });
+    let layer = new L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+    
+    // L.marker([-7.324542931485562, 108.22048455476762]).addTo(map);
+    
+    let marker = null;
+    
+    map.on('click', (event)=> {
 
-    // function show modal insert data
-    function insert() {
-        $('form').attr('action', '/post')
-        $("form input[name='_method']").attr('value', 'POST')
-        $('.modal-title').html('Tambah Berita')
-        $(".modal-footer button[type='submit']").html('Tambah')
-        $('#postTitle').val("")
-        $('#categoryId').val("")
-        $('#postDesc').val("")
-        $('#showModal').modal().show
-    }
+        if(marker !== null){
+            map.removeLayer(marker);
+        }
 
-    // function show modal edit data
-    function edit(id) {
-        $.get('post/' + id + '/edit', function(e) {
-            $('form').attr('action', '/post/' + id)
-            $("form input[name='_method']").attr('value', 'PUT')
-            $('.modal-title').html('Edit Berita')
-            $(".modal-footer button[type='submit']").html('Edit')
-            $('#categoryId').val(e.category_id)
-            $('#postTitle').val(e.postTitle)
-            $('#postDesc').val(e.postDesc)
-            $('#showModal').modal().show
-        })
-    }
+        marker = L.marker([event.latlng.lat , event.latlng.lng]).addTo(map);
 
-    // ClassicEditor
-    //     .create( document.querySelector( '#postDesc' ))
-    //     .catch( error => {
-    //         console.error( error );
-    //     } );
+        document.getElementById('latitude').value = event.latlng.lat;
+        document.getElementById('longitude').value = event.latlng.lng;
+        
+    })
+
+    // ckeditor
+    ClassicEditor.create( document.querySelector( '#tourDesc' )).catch( error => {
+        console.error( error );
+    } );
+
 </script>
 @endpush

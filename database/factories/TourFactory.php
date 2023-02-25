@@ -23,7 +23,7 @@ class TourFactory extends Factory
             'tourLon'        => fake()->longitude($min = -180, $max = 180),
             'tourImg'        => fake()->imageUrl(640, 480, 'animals', true, 'cats'),
             'tourAddress'    => fake()->streetAddress(),
-            'tourDesc'       => fake()->randomHtml()
+            'tourDesc'       => fake()->paragraph(mt_rand(5,10))
         ];
     }
 }
