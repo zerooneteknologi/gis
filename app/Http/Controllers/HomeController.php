@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
+use App\Models\Tour;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +25,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('landing.home');
+        return view('landing.home', [
+            'posts' => Post::latest()->limit(4)->get(),
+            'tours' => Tour::limit(4)->orderby('id', 'DESC')->get(),
+        ]);
+    }
+
+    public function news()
+    {
+        return view('landing.post', [
+            'posts' => Post::latest()->paginate(6),
+        ]);
     }
 }

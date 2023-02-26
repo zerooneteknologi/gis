@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->foreignId('category_id');
+            $table->string('postImege');
             $table->string('postTitle');
             $table->string('postSlug')->unique();
             $table->text('postExcerpt');

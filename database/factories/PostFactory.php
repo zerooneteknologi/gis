@@ -21,6 +21,7 @@ class PostFactory extends Factory
             'postTitle'       => fake()->sentence(3),
             'postSlug'        => fake()->slug(3),
             'postExcerpt'     => fake()->paragraph(),
+            'postImege'     => fake()->imageUrl(640, 480, 'animals'),
             'postDesc'        => fake()->paragraph(mt_rand(5, 10))
         ];
     }

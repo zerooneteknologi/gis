@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-    <Title>{{ $setting->tittleWeb}} | @yield('title', '')</Title>
+    <Title>{{ Str::title($setting->tittleWeb)}} | @yield('title', '')</Title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -51,16 +51,16 @@
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
                         <a href="index.html" class="logo">
-                            <img src="assets/images/logo.png" alt="">
+                            <img src="{{ asset($setting->logo)}}" alt="{{ $setting->tittleWeb}}" style="height: 50px; width: auto">
                         </a>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li><a href="index.html" class="active">Home</a></li>
-                            <li><a href="about.html">About</a></li>
-                            <li><a href="deals.html">Deals</a></li>
-                            <li><a href="reservation.html">Reservation</a></li>
-                            <li><a href="reservation.html">Book Yours</a></li>
+                            <li><a href="index.html" class="{{ Request::is('home*') ? 'active': ''}}">Home</a></li>
+                            <li><a href="about.html" class="{{ Request::is('about*') ? 'active': ''}}">About</a></li>
+                            <li><a href="deals.html" class="{{ Request::is('detail*') ? 'active': ''}}">Deals</a></li>
+                            <li><a href="reservation.html" class="{{ Request::is('reservation*') ? 'active': ''}}">Reservation</a></li>
+                            <li><a href="reservation.html" class="{{ Request::is('book*') ? 'active': ''}}">Book Yours</a></li>
                         </ul>   
                         <a class='menu-trigger'>
                             <span>Menu</span>
