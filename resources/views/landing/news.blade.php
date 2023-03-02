@@ -2,7 +2,7 @@
 
 @section('content')
 @section('desc', "{{ $setting->descWeb }}")
-@section('title', 'Home')
+@section('title', 'News')
     <!-- ***** Main Banner Area Start ***** -->
     @if ($posts->count())
         <div class="page-heading" style="background: url({{ asset($posts[0]->postImege)}})">
@@ -10,8 +10,9 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h4>Discover Our Weekly Offers</h4>
-                    <h2>{{ $posts[0]->postTitle}}</h2>
-                    <div class="border-button"><a href="#">Discover More</a></div>
+                    <h2>{{ Str::title($posts[0]->postTitle)}}</h2>
+                    <p>{{ $posts[0]->postExcerpt}}</p>
+                    <div class="border-button"><a href="{{ route('single', $posts[0]->postSlug)}}">Discover More</a></div>
                 </div>
             </div>
             </div>
@@ -27,39 +28,14 @@
                     <form id="search-form" name="gs" method="submit" role="search" action="#">
                         <div class="row">
                         <div class="col-lg-2">
-                            <h4>Sort Deals By:</h4>
+                            <h4>Pencarian:</h4>
                         </div>
-                        <div class="col-lg-4">
-                            <fieldset>
-                                <select name="Location" class="form-select" aria-label="Default select example" id="chooseLocation" onChange="this.form.click()">
-                                    <option selected>Destinations</option>
-                                    <option type="checkbox" name="option1" value="Italy">Italy</option>
-                                    <option value="France">France</option>
-                                    <option value="Switzerland">Switzerland</option>
-                                    <option value="Thailand">Thailand</option>
-                                    <option value="Australia">Australia</option>
-                                    <option value="India">India</option>
-                                    <option value="Indonesia">Indonesia</option>
-                                    <option value="Malaysia">Malaysia</option>
-                                    <option value="Singapore">Singapore</option>
-                                </select>
-                            </fieldset>
-                        </div>
-                        <div class="col-lg-4">
-                            <fieldset>
-                                <select name="Price" class="form-select" aria-label="Default select example" id="choosePrice" onChange="this.form.click()">
-                                    <option selected>Price Range</option>
-                                    <option value="100">$100 - $250</option>
-                                    <option value="250">$250 - $500</option>
-                                    <option value="500">$500 - $1,000</option>
-                                    <option value="1000">$1,000 - $2,500</option>
-                                    <option value="2500+">$2,500+</option>
-                                </select>
-                            </fieldset>
+                        <div class="col-lg-8">
+                            <input type="text" name="search" class="bg-transparent form-control">
                         </div>
                         <div class="col-lg-2">                        
                             <fieldset>
-                                <button class="border-button">Search Results</button>
+                                <button class="border-button">Cari</button>
                             </fieldset>
                         </div>
                         </div>
@@ -84,7 +60,7 @@
             <div class="col-lg-12">
                 <div class="items">
                     <div class="row">
-                        @foreach ($posts as $post)
+                        @foreach ($posts->skip(1) as $post)
                             <div class="col-lg-12">
                                 <div class="item">
                                     <div class="row">
@@ -95,15 +71,15 @@
                                         </div>
                                         <div class="col-lg-8 col-sm-7">
                                             <div class="right-content">
-                                                <h4>{{ $post->postTitle}}</h4>
-                                                <span>{{ $post->postTitle}}</span>
+                                                <h4>{{ Str::title($post->postTitle)}}</h4>
+                                                <span>{{ Str::title($post->postTitle)}}</span>
                                                 <div class="main-button">
-                                                <a href="about.html">Explore More</a>
+                                                <a href="{{ route('single', $post->postSlug)}}">Explore More</a>
                                                 </div>
                                                 <p>{{ $post->postExcerpt}}</p>
                                                 <ul class="info">
-                                                <li><i class="fa fa-user"></i> 8.66 Mil People</li>
-                                                <li><i class="fa fa-home"></i> {{ $post->category->categoryName}}</li>
+                                                <li><i class="fa fa-clock"></i> {{ $post->created_at->diffForHumans()}}</li>
+                                                <li><i class="fa fa-list"></i> {{ $post->category->categoryName}}</li>
                                                 </ul>
                                                 {{-- <div class="text-button">
                                                     <a href="about.html">Need Directions ? <i class="fa fa-arrow-right"></i></a>

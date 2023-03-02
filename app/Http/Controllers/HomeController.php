@@ -33,8 +33,15 @@ class HomeController extends Controller
 
     public function news()
     {
-        return view('landing.post', [
+        return view('landing.news', [
             'posts' => Post::latest()->paginate(6),
+        ]);
+    }
+
+    public function post(Post $post)
+    {
+        return view('landing.single', [
+            'post' => $post
         ]);
     }
 }

@@ -56,8 +56,8 @@
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li><a href="index.html" class="{{ Request::is('home*') ? 'active': ''}}">Home</a></li>
-                            <li><a href="about.html" class="{{ Request::is('about*') ? 'active': ''}}">About</a></li>
+                            <li><a href="{{ route('home')}}" class="{{ Request::is('home*') ? 'active': ''}}">Beranda</a></li>
+                            <li><a href="{{ route('news')}}" class="{{ Request::is('news*') ? 'active': ''}}">Berita</a></li>
                             <li><a href="deals.html" class="{{ Request::is('detail*') ? 'active': ''}}">Deals</a></li>
                             <li><a href="reservation.html" class="{{ Request::is('reservation*') ? 'active': ''}}">Reservation</a></li>
                             <li><a href="reservation.html" class="{{ Request::is('book*') ? 'active': ''}}">Book Yours</a></li>

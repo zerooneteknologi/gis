@@ -15,7 +15,7 @@
                     <div class="banner-inner-wrapper header-text">
                         <div class="main-caption">
                             <h2>Take a Glimpse Into The Beautiful Country Of:</h2>
-                            <h1>{{ $tour->tourName}}</h1>
+                            <h1>{{ Str::title($tour->tourName)}}</h1>
                             <div class="border-button"><a href="about.html">Go There</a></div>
                         </div>
                         <div class="container">
@@ -85,10 +85,10 @@
                                         </div>
                                         <div class="col-lg-8 col-sm-7">
                                             <div class="right-content">
-                                                <h4>{{ $post->postTitle}}</h4>
-                                                <span>{{ $post->postTitle}}</span>
+                                                <h4>{{ Str::title($post->postTitle)}}</h4>
+                                                <span>{{ Str::title($post->postTitle)}}</span>
                                                 <div class="main-button">
-                                                <a href="about.html">Explore More</a>
+                                                <a href="{{ route('single', $post->postSlug)}}">Explore More</a>
                                                 </div>
                                                 <p>{{ $post->postExcerpt}}</p>
                                                 <ul class="info">
