@@ -31,12 +31,5 @@ class Post extends Model
             $query->where('postTitle', "LIKE", "%$search%")
                 ->orWhere('postDesc', "LIKE", "%$search%")
         );
-
-        $query->when(
-            $filter['category'] ?? false,
-            fn ($query, $category) =>
-            $query->whereHas('category', fn ($query) =>
-            $query->where('categoryName'))
-        );
     }
 }

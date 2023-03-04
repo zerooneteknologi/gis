@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoyController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\GaleryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrganizerController;
 use App\Http\Controllers\SettingController;
@@ -38,5 +39,6 @@ Route::resource('/setting', SettingController::class)->only(['index', 'update'])
 Route::resource('/organizer', OrganizerController::class);
 Route::resource('/post', PostController::class);
 Route::resource('/tour', TourController::class);
+Route::resource('/galery', GaleryController::class);
 
 Route::post('image-upload', [ImageUploadController::class, 'storeImage'])->name('image.upload');

@@ -33,7 +33,8 @@ class DatabaseSeeder extends Seeder
             SettingSeeder::class,
             OrganizerSeeder::class,
             PostSeeder::class,
-            TourSeeder::class
+            TourSeeder::class,
+            GalerySeeder::class
         ]);
     }
 }
