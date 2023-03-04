@@ -19,4 +19,24 @@ class Post extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    /**
+     * Scope a query searching.
+     */
+    public function scopeSearch(Builder $query, $filter): void
+    {
+        $query->when(
+            $filter ?? false,
+            fn ($query, $search) =>
+            $query->where('postTitle', "LIKE", "%$search%")
+                ->orWhere('postDesc', "LIKE", "%$search%")
+        );
+
+        $query->when(
+            $filter['category'] ?? false,
+            fn ($query, $category) =>
+            $query->whereHas('category', fn ($query) =>
+            $query->where('categoryName'))
+        );
+    }
 }

@@ -2,7 +2,7 @@
     <ul class="page-numbers">
         {{-- Previous Page Link --}}
         @if ($paginator->onFirstPage())
-            <li><a class="disabled"><i class="fa fa-arrow-left"></i></a></li>
+            <li><i class="fa fa-arrow-left"></i></li>
         @else
             <li><a href="{{ $paginator->previousPageUrl() }}"><i class="fa fa-arrow-left"></i></a></li>
         @endif
@@ -32,7 +32,7 @@
         @if ($paginator->hasMorePages())
             <li><a href="{{ $paginator->nextPageUrl() }}"><i class="fa fa-arrow-right"></i></a></li>
         @else
-            <li><a class="disabled"><i class="fa fa-arrow-right"></i></a></li>
+            <li><i class="fa fa-arrow-right"></i></li>
         @endif
     </ul>
 @endif

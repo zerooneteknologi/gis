@@ -5,33 +5,35 @@
 @section('title', 'News')
     <!-- ***** Main Banner Area Start ***** -->
     @if ($posts->count())
+        @if (!request('search'))
         <div class="page-heading" style="background: url({{ asset($posts[0]->postImege)}})">
             <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h4>Discover Our Weekly Offers</h4>
-                    <h2>{{ Str::title($posts[0]->postTitle)}}</h2>
-                    <p>{{ $posts[0]->postExcerpt}}</p>
-                    <div class="border-button"><a href="{{ route('single', $posts[0]->postSlug)}}">Discover More</a></div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h4>Discover Our Weekly Offers</h4>
+                        <h2>{{ Str::title($posts[0]->postTitle)}}</h2>
+                        <p>{{ $posts[0]->postExcerpt}}</p>
+                        <div class="border-button"><a href="{{ route('single', $posts[0]->postSlug)}}">Discover More</a></div>
+                    </div>
                 </div>
             </div>
-            </div>
         </div>
+        @endif
     @endif
     <!-- ***** Main Banner Area End ***** -->
     
     <!-- ***** Main search form Start ***** -->
-    <div class="search-form">
+    <div class="search-form @if (request('search')) mt-5 @endif ">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <form id="search-form" name="gs" method="submit" role="search" action="#">
+                    <form id="search-form" name="gs" method="submit" role="search" action="{{ route('news')}}">
                         <div class="row">
                         <div class="col-lg-2">
                             <h4>Pencarian:</h4>
                         </div>
                         <div class="col-lg-8">
-                            <input type="text" name="search" class="bg-transparent form-control">
+                            <input type="text" name="search" class="bg-transparent form-control" value="{{ request('search')}}" placeholder="cari berita">
                         </div>
                         <div class="col-lg-2">                        
                             <fieldset>
@@ -81,9 +83,6 @@
                                                 <li><i class="fa fa-clock"></i> {{ $post->created_at->diffForHumans()}}</li>
                                                 <li><i class="fa fa-list"></i> {{ $post->category->categoryName}}</li>
                                                 </ul>
-                                                {{-- <div class="text-button">
-                                                    <a href="about.html">Need Directions ? <i class="fa fa-arrow-right"></i></a>
-                                                </div> --}}
                                             </div>
                                         </div>
                                     </div>
