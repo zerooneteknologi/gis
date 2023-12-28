@@ -25,7 +25,9 @@ class GaleryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.galery.create', [
+            'tours' => Tour::orderBy('tourName', 'asc')->get()
+        ]);
     }
 
     /**
@@ -33,7 +35,7 @@ class GaleryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $request;
     }
 
     /**

@@ -47,4 +47,23 @@ class HomeController extends Controller
             'post' => $post
         ]);
     }
+
+    public function upload(Request $request){
+        return $request;
+
+    //     if ($request->file('image')) {
+    //         $image = $request->file('image');
+    //         $imageName = time() . '.' . $image->getClientOriginalExtension();
+    //         $image->move(public_path('images'), $imageName);
+    //         return response()->json([
+    //         'success' => true,
+    //         'image' => $imageName
+    //         ]);
+    //         } else {
+    //         return response()->json([
+    //         'success' => false,
+    //         'message' => 'No image selected'
+    //         ]);
+    //         }
+    }
 }

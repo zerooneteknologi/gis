@@ -27,7 +27,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         View::share('setting', Setting::first());
-        // Paginator::defaultView('landing.home');
+        Paginator::defaultView('landing.home');
         Paginator::useBootstrapFive();
     }
 }

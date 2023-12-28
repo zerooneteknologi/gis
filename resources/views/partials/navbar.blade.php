@@ -44,13 +44,16 @@
 					<a href="{{route('category.index')}}" class="pc-link "><span class="pc-micon"><i data-feather="command"></i></span><span class="pc-mtext capitalize">{{__('category')}}</span></a>
 				</li>
 				<li class="pc-item">
-					<a href="{{route('post.index')}}" class="pc-link "><span class="pc-micon"><i data-feather="command"></i></span><span class="pc-mtext capitalize">{{__('post')}}</span></a>
+					<a href="{{route('post.index')}}" class="pc-link "><span class="pc-micon"><i data-feather="file-text"></i></span><span class="pc-mtext capitalize">{{__('post')}}</span></a>
 				</li>
 				<li class="pc-item">
-					<a href="{{route('organizer.index')}}" class="pc-link "><span class="pc-micon"><i data-feather="command"></i></span><span class="pc-mtext capitalize">{{__('organizer')}}</span></a>
+					<a href="{{route('organizer.index')}}" class="pc-link "><span class="pc-micon"><i data-feather="aperture"></i></span><span class="pc-mtext capitalize">{{__('organizer')}}</span></a>
 				</li>
 				<li class="pc-item">
-					<a href="{{route('tour.index')}}" class="pc-link "><span class="pc-micon"><i data-feather="command"></i></span><span class="pc-mtext capitalize">{{__('tour')}}</span></a>
+					<a href="{{route('tour.index')}}" class="pc-link "><span class="pc-micon"><i data-feather="map"></i></span><span class="pc-mtext capitalize">{{__('tour')}}</span></a>
+				</li>
+				<li class="pc-item">
+					<a href="{{route('galery.index')}}" class="pc-link "><span class="pc-micon"><i data-feather="film"></i></span><span class="pc-mtext capitalize">{{__('galery')}}</span></a>
 				</li>
 				<li class="pc-item">
 					<a href="{{route('setting.index')}}" class="pc-link "><span class="pc-micon"><i data-feather="settings"></i></span><span class="pc-mtext capitalize">{{__('setting')}}</span></a>

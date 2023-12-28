@@ -19,8 +19,8 @@ class GaleryFactory extends Factory
         return [
             'tour_id' => mt_rand(1, 5),
             'galeryName' => fake()->streetAddress(),
-            'galeryImg' => fake()->imageUrl(400, 400, 'place'),
-            'description' => fake()->sentence()
+            'galeryImage' => fake()->imageUrl(400, 400, 'place'),
+            'galeryDesc' => fake()->sentence()
         ];
     }
 }

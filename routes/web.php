@@ -42,3 +42,6 @@ Route::resource('/tour', TourController::class);
 Route::resource('/galery', GaleryController::class);
 
 Route::post('image-upload', [ImageUploadController::class, 'storeImage'])->name('image.upload');
+
+Route::post('/upload', [HomeController::class, 'upload'])->name('upload');
+// Route::post('/upload-image', 'ImageController@upload')->name('upload.image');

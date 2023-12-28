@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('tour_id');
             $table->string('galeryName', 100);
-            $table->string('galeryImg')->nullable();
-            $table->string('description')->nullable();
+            $table->string('galeryImage')->nullable();
+            $table->text('galeryDesc')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
